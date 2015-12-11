@@ -36,3 +36,6 @@ column_names <- as.character(fread("data/household_power_consumption.txt", nrows
 # due to some weirdness with R's handling of the \ character, we need to double
 # up the backslashes
 data <- fread("grep '^0\\?[12]/0\\?2/2007' data/household_power_consumption.txt", col.names=column_names)
+
+# Parse the raw date + time strings as DateTime objects
+data$DateTime <- as.POSIXct(strptime(paste(data$Date, data$Time), '%d/%m/%Y %H:%M:%S'))
