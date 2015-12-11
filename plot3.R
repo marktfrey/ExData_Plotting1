@@ -16,7 +16,7 @@ x_range <- range(data$DateTime)
 y_label <- "Energy sub metering"
 y_range <- range(data$Sub_metering_1, data$Sub_metering_2, data$Sub_metering_3)
 colors  <- c('black', 'red', 'blue')
-columns <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+labels  <- c("Sub_metering_1  ", "Sub_metering_2  ", "Sub_metering_3  ")
 
 # Plot the chart with the correct axes, but no lines
 plot(type = "n", xRange <- x_range, xlab = x_label,
@@ -28,7 +28,9 @@ lines(data$DateTime, data$Sub_metering_2, col=colors[2])
 lines(data$DateTime, data$Sub_metering_3, col=colors[3])
 
 # Add the legend
-legend("topright", columns, col=colors, lty=1, cex=.75)
+legend("topright", labels, col=colors, lwd=1, cex=0.8)
+
+
 
 # Use the png graphic device to generate the image file
 dev.copy(png, file = "plot3.png", width = 480, height = 480)

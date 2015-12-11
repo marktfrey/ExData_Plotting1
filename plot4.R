@@ -28,13 +28,13 @@ x_range <- range(data$DateTime)
 y_label <- "Energy sub metering"
 y_range <- range(data$Sub_metering_1, data$Sub_metering_2, data$Sub_metering_3)
 colors  <- c('black', 'red', 'blue')
-columns <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+labels  <- c("Sub_metering_1  ", "Sub_metering_2  ", "Sub_metering_3  ")
 plot(type = "n", xRange <- x_range, xlab = x_label,
                  yRange <- y_range, ylab = y_label, col = colors)
 lines(data$DateTime, data$Sub_metering_1, col=colors[1])
 lines(data$DateTime, data$Sub_metering_2, col=colors[2])
 lines(data$DateTime, data$Sub_metering_3, col=colors[3])
-legend("topright", columns, col=colors, bty = "n", lty=1, cex=.75)
+legend("topright", labels, col=colors, lwd=1, cex=0.8, bty="n")
 
 # Third chart (top right)
 # Voltage over time
